@@ -161,5 +161,173 @@ export const EVENTS: EventData[] = [
     title: 'Aniversário do INPI',
     category: 'PI',
     description: 'Fundação do Instituto Nacional da Propriedade Industrial em 1970.'
+  },
+  {
+    id: '21',
+    date: '03-03',
+    title: 'Dia da Biodiversidade',
+    category: 'Ciência',
+    description: 'Conscientização sobre a preservação da biodiversidade e o uso sustentável dos recursos naturais.'
+  },
+  {
+    id: '22',
+    date: '03-14',
+    title: 'Dia Internacional da Matemática',
+    category: 'Ciência',
+    description: 'Destaca o papel da matemática em algoritmos, criptografia, inteligência artificial e inovação tecnológica.'
+  },
+  {
+    id: '23',
+    date: '03-20',
+    title: 'Dia Mundial da Criatividade e Inovação',
+    category: 'Inovação',
+    description: 'Incentiva soluções criativas para desafios sociais, científicos e econômicos.'
+  },
+  {
+    id: '24',
+    date: '04-23',
+    title: 'Dia Mundial do Livro e do Direito de Autor',
+    category: 'PI',
+    description: 'Valoriza a literatura e reforça a importância do direito autoral para autores e criadores.'
+  },
+  {
+    id: '25',
+    date: '06-01',
+    title: 'Dia da Imprensa',
+    category: 'Sociedade',
+    description: 'Reconhece a importância da imprensa para a democracia, a informação e a liberdade de expressão.'
+  },
+  {
+    id: '26',
+    date: '06-05',
+    title: 'Dia Mundial do Meio Ambiente',
+    category: 'Ciência',
+    description: 'Promove ações de proteção ambiental, sustentabilidade e responsabilidade coletiva.'
+  },
+  {
+    id: '27',
+    date: '06-08',
+    title: 'Dia Mundial da Antifalsificação',
+    category: 'PI',
+    description: 'Conscientização sobre enforcement, combate à pirataria e proteção de marcas e produtos autênticos.'
+  },
+  {
+    id: '28',
+    date: '06-19',
+    title: 'Dia do Cinema Brasileiro',
+    category: 'Cultura',
+    description: 'Celebra a produção audiovisual nacional e a relevância cultural do cinema brasileiro.'
+  },
+  {
+    id: '29',
+    date: '08-14',
+    title: 'Dia Mundial do Combate à Pirataria',
+    category: 'PI',
+    description: 'Reforça a proteção da propriedade intelectual e os impactos econômicos e sociais da pirataria.'
+  },
+  {
+    id: '30',
+    date: '09-12',
+    title: 'Dia do Programador',
+    category: 'Inovação',
+    description: 'Homenagem aos profissionais de software e à colaboração tecnológica, incluindo o ecossistema open source.'
+  },
+  {
+    id: '31',
+    date: '09-21',
+    title: 'Dia Mundial das Pessoas com Deficiência',
+    category: 'Sociedade',
+    description: 'Promove inclusão, acessibilidade e igualdade de oportunidades para pessoas com deficiência.'
+  },
+  {
+    id: '32',
+    date: '09-27',
+    title: 'Dia Mundial do Turismo',
+    category: 'Indústria',
+    description: 'Reconhece o impacto econômico, cultural e social do turismo no desenvolvimento dos territórios.'
+  },
+  {
+    id: '33',
+    date: '09-30',
+    title: 'Dia da Secretária',
+    category: 'Sociedade',
+    description: 'Valoriza profissionais essenciais para organização, comunicação e suporte nas instituições.'
+  },
+  {
+    id: '34',
+    date: '10-01',
+    title: 'Dia Mundial da Terceira Idade',
+    category: 'Sociedade',
+    description: 'Incentiva respeito, inclusão e qualidade de vida para a população idosa.'
+  },
+  {
+    id: '35',
+    date: '10-05',
+    title: 'Dia Internacional da Micro e Pequena Empresa',
+    category: 'Indústria',
+    description: 'Destaca o papel das micro e pequenas empresas na geração de emprego, renda e inovação.'
+  },
+  {
+    id: '36',
+    date: '10-12',
+    title: 'Dia da Criança',
+    category: 'Sociedade',
+    description: 'Data voltada à promoção dos direitos da criança, proteção integral e desenvolvimento saudável.'
+  },
+  {
+    id: '37',
+    date: '10-15',
+    title: 'Dia do Professor',
+    category: 'Educação',
+    description: 'Reconhece o papel estratégico dos educadores na formação de cidadãos e no avanço do conhecimento.'
+  },
+  {
+    id: '38',
+    date: '10-17',
+    title: 'Dia da Indústria',
+    category: 'Indústria',
+    description: 'Valoriza o setor industrial como motor de produtividade, empregos e transformação tecnológica.'
+  },
+  {
+    id: '39',
+    date: '11-17',
+    title: 'Dia da Criatividade',
+    category: 'Inovação',
+    description: 'Estimula pensamento criativo, experimentação e desenvolvimento de novas soluções.'
+  },
+  {
+    id: '40',
+    date: '11-19',
+    title: 'Dia Mundial do Empreendedorismo Feminino',
+    category: 'Inovação',
+    description: 'Reconhece o protagonismo de mulheres empreendedoras na economia e no ecossistema de inovação.'
+  },
+  {
+    id: '41',
+    date: '11-20',
+    title: 'Dia Mundial da Consciência Negra',
+    category: 'Sociedade',
+    description: 'Promove reflexão sobre igualdade racial, valorização da cultura afro-brasileira e combate ao racismo.'
+  },
+  {
+    id: '42',
+    date: '12-04',
+    title: 'Dia da Propaganda',
+    category: 'Indústria',
+    description: 'Reconhece a comunicação publicitária e seu papel na economia criativa e no posicionamento de marcas.'
+  },
+  {
+    id: '43',
+    date: '12-08',
+    title: 'Dia da Família',
+    category: 'Sociedade',
+    description: 'Celebra os vínculos familiares e sua importância para o cuidado, educação e convivência social.'
+  },
+  {
+    id: '44',
+    date: '12-18',
+    title: 'Dia do Museólogo',
+    category: 'Cultura',
+    description: 'Homenageia profissionais que preservam, pesquisam e comunicam o patrimônio cultural em museus.'
   }
 ];
