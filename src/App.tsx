@@ -189,6 +189,15 @@ export default function App() {
 
   // Theme Toggle
   useEffect(() => {
+    const savedTheme = window.localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      setIsDarkMode(true);
+      return;
+    }
+    if (savedTheme === 'light') {
+      setIsDarkMode(false);
+      return;
+    }
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setIsDarkMode(true);
     }
@@ -197,8 +206,10 @@ export default function App() {
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
+      window.localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
+      window.localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
 
