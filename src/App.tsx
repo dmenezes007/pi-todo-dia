@@ -103,7 +103,13 @@ const EventModal = ({ event, onClose }: { event: EventData | null; onClose: () =
   );
 };
 
-const Countdown = ({ nextEvent }: { nextEvent: EventData | null }) => {
+const Countdown = ({
+  nextEvent,
+  onSelectEvent,
+}: {
+  nextEvent: EventData | null;
+  onSelectEvent: (event: EventData) => void;
+}) => {
   const [timeLeft, setTimeLeft] = useState<{days: number, hours: number, minutes: number, seconds: number} | null>(null);
   const [isToday, setIsToday] = useState(false);
 
@@ -152,7 +158,12 @@ const Countdown = ({ nextEvent }: { nextEvent: EventData | null }) => {
   if (!nextEvent) return null;
 
   return (
-    <div className="glass-panel rounded-xl p-4 flex items-center gap-4 border-l-4 border-l-purple-500">
+    <button
+      type="button"
+      onClick={() => onSelectEvent(nextEvent)}
+      className="glass-panel rounded-xl p-4 flex items-center gap-4 border-l-4 border-l-purple-500 w-full text-left cursor-pointer hover:border-purple-400/70 transition-colors"
+      aria-label={`Abrir detalhes de ${nextEvent.title}`}
+    >
       <div className="p-3 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg">
         <Clock size={24} />
       </div>
@@ -176,7 +187,7 @@ const Countdown = ({ nextEvent }: { nextEvent: EventData | null }) => {
           </div>
         ) : null}
       </div>
-    </div>
+    </button>
   );
 };
 
@@ -335,7 +346,7 @@ export default function App() {
           </div>
 
           <div className="lg:col-span-1 w-full">
-            <Countdown nextEvent={nextEvent} />
+            <Countdown nextEvent={nextEvent} onSelectEvent={setSelectedEvent} />
           </div>
         </div>
 
