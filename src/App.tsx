@@ -288,7 +288,7 @@ export default function App() {
               </div>
               <div>
                 <h1 className="text-xl sm:text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300">
-                  Todo Dia é Dia da PI
+                  Todo Dia é Dia de PI
                 </h1>
               </div>
             </div>
@@ -477,7 +477,7 @@ export default function App() {
         )}
 
         <footer className="mt-20 pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-slate-500 text-sm">
-          <p>© {currentYear} Todo Dia é Dia da PI. Promovendo a cultura da propriedade intelectual e da inovação.</p>
+          <p>© {currentYear} Todo Dia é Dia de PI. Promovendo a cultura da propriedade intelectual e da inovação.</p>
         </footer>
 
       </main>
