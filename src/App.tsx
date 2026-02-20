@@ -310,7 +310,7 @@ export default function App() {
           <div className="flex items-center justify-between h-16 sm:h-20">
             <div className="flex items-center gap-3">
               <div className="bg-gradient-to-br from-purple-600 to-indigo-600 text-white p-2 rounded-lg shadow-lg">
-                <Lightbulb size={24} />
+                <img src="/favicon.svg" alt="Logo PI" className="w-6 h-6" />
               </div>
               <div>
                 <h1 className="text-xl sm:text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300">
