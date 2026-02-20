@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { utils, writeFileXLSX } from 'xlsx';
 import { 
   Search, 
   Calendar as CalendarIcon, 
@@ -257,13 +258,27 @@ export default function App() {
   }, [sortedEvents]);
 
   const exportEvents = () => {
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(EVENTS, null, 2));
-    const downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", "eventos_pi.json");
-    document.body.appendChild(downloadAnchorNode);
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
+    const rows = EVENTS.map((event) => ({
+      Data: `${new Date().getFullYear()}-${event.date}`,
+      Título: event.title,
+      Categoria: event.category,
+      Descrição: event.description,
+      Destaque: event.isHighlight ? 'Sim' : 'Não',
+    }));
+
+    const worksheet = utils.json_to_sheet(rows);
+    const workbook = utils.book_new();
+
+    worksheet['!cols'] = [
+      { wch: 14 },
+      { wch: 45 },
+      { wch: 18 },
+      { wch: 90 },
+      { wch: 12 },
+    ];
+
+    utils.book_append_sheet(workbook, worksheet, 'Calendário');
+    writeFileXLSX(workbook, 'eventos_pi.xlsx');
   };
 
   const scrollToToday = () => {
