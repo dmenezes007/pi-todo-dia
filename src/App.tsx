@@ -334,7 +334,7 @@ export default function App() {
               Celebre a <span className="text-purple-600 dark:text-purple-400">PI</span> todos os dias.
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-              Um calendário interativo dedicado àPropriedade Intelectual e suas interfaces com a Inovação, Indústria, Ciência, Tecnologia e Educação. Explore os marcos que transformam o mundo.
+              Um calendário interativo dedicado à Propriedade Intelectual e suas interfaces com a Inovação, Indústria, Ciência, Tecnologia e Educação. Explore os marcos que transformam o mundo.
             </p>
             
             <div className="flex flex-wrap gap-2 pt-2">
