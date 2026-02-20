@@ -309,10 +309,10 @@ export default function App() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           <div className="lg:col-span-2 space-y-4">
             <h2 className="text-4xl sm:text-5xl font-display font-bold text-slate-900 dark:text-white leading-tight">
-              Celebre a <span className="text-purple-600 dark:text-purple-400">Inovação</span> todos os dias.
+              Celebre a <span className="text-purple-600 dark:text-purple-400">PI</span> todos os dias.
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-              Um calendário interativo dedicado à Educação, Ciência, Indústria e Propriedade Intelectual. Explore os marcos que transformam o mundo.
+              Um calendário interativo dedicado àPropriedade Intelectual e suas interfaces com a Inovação, Indústria, Ciência, Tecnologia e Educação. Explore os marcos que transformam o mundo.
             </p>
             
             <div className="flex flex-wrap gap-2 pt-2">
@@ -466,7 +466,7 @@ export default function App() {
         )}
 
         <footer className="mt-20 pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-slate-500 text-sm">
-          <p>© {currentYear} Dia da PI é Todo Dia. Promovendo a cultura da inovação.</p>
+          <p>© {currentYear} Todo Dia é Dia da PI. Promovendo a cultura da propriedade intelectual e da inovação.</p>
         </footer>
 
       </main>
