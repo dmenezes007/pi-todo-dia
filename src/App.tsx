@@ -277,7 +277,7 @@ export default function App() {
               </div>
               <div>
                 <h1 className="text-xl sm:text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300">
-                  Dia da PI é Todo Dia
+                  Todo Dia é Dia da PI
                 </h1>
               </div>
             </div>
