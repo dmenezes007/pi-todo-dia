@@ -169,11 +169,11 @@ const Countdown = ({
       <div className="p-3 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg">
         <Clock size={24} />
       </div>
-      <div>
+      <div className="min-w-0">
         <div className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
           {isToday ? 'Acontecendo Agora' : 'Próximo Evento'}
         </div>
-        <div className="font-display font-bold text-slate-900 dark:text-white text-lg truncate max-w-[200px] sm:max-w-xs">
+        <div className="font-display font-bold text-slate-900 dark:text-white text-lg leading-snug whitespace-normal break-words">
           {nextEvent.title}
         </div>
         {isToday ? (
@@ -340,7 +340,7 @@ export default function App() {
         </span>
       </div>
 
-      <div className={`flex-1 ${viewMode === 'grid' ? 'p-5' : ''}`}>
+      <div className={`flex-1 min-w-0 ${viewMode === 'grid' ? 'p-5' : ''}`}>
         <div className="flex justify-between items-start mb-2">
           <CategoryBadge category={event.category} />
           {event.isHighlight && (
@@ -350,7 +350,7 @@ export default function App() {
           )}
         </div>
 
-        <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+        <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white mb-2 leading-snug whitespace-normal break-words group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
           {event.title}
         </h3>
 

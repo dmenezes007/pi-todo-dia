@@ -728,5 +728,404 @@ export const EVENTS: EventData[] = [
     title: 'Dia Nacional do Cego',
     category: 'Sociedade',
     description: 'Destaca direitos, autonomia e inclusão de pessoas cegas em educação, trabalho, cultura e mobilidade.'
+  },
+  {
+    id: '104',
+    date: '01-01',
+    title: 'Confraternização Universal',
+    category: 'Sociedade',
+    description: 'Celebra o início do ano com uma mensagem de paz, fraternidade e cooperação entre os povos.'
+  },
+  {
+    id: '105',
+    date: '01-08',
+    title: 'Dia do Fotógrafo',
+    category: 'Cultura',
+    description: 'Homenageia profissionais da fotografia e sua contribuição para memória, arte e comunicação social.'
+  },
+  {
+    id: '106',
+    date: '01-28',
+    title: 'Dia Nacional da Visibilidade Trans',
+    category: 'Sociedade',
+    description: 'Promove respeito, cidadania e garantia de direitos para pessoas trans e travestis em todos os espaços.'
+  },
+  {
+    id: '107',
+    date: '01-30',
+    title: 'Dia Nacional da História em Quadrinhos',
+    category: 'Cultura',
+    description: 'Valoriza a produção de HQs e sua relevância cultural, educativa e criativa no Brasil.'
+  },
+  {
+    id: '108',
+    date: '02-14',
+    title: 'Dia da Amizade',
+    category: 'Sociedade',
+    description: 'Incentiva vínculos de afeto, solidariedade e convivência respeitosa entre pessoas e comunidades.'
+  },
+  {
+    id: '109',
+    date: '02-20',
+    title: 'Dia da Justiça Social',
+    category: 'Sociedade',
+    description: 'Reforça a importância da redução de desigualdades e do acesso equitativo a direitos e oportunidades.'
+  },
+  {
+    id: '110',
+    date: '03-12',
+    title: 'Dia do Bibliotecário',
+    category: 'Educação',
+    description: 'Reconhece profissionais essenciais para organização da informação, leitura e democratização do conhecimento.'
+  },
+  {
+    id: '111',
+    date: '03-15',
+    title: 'Dia da Escola',
+    category: 'Educação',
+    description: 'Destaca o papel da escola na formação cidadã, no desenvolvimento humano e na inclusão social.'
+  },
+  {
+    id: '112',
+    date: '03-16',
+    title: 'Dia Nacional da Poesia',
+    category: 'Cultura',
+    description: 'Celebra a poesia como expressão artística, sensível e crítica da diversidade cultural brasileira.'
+  },
+  {
+    id: '113',
+    date: '03-16',
+    title: 'Dia Nacional de Conscientização sobre Mudanças Climáticas',
+    category: 'Ciência',
+    description: 'Estimula consciência ambiental e ações de mitigação e adaptação diante da crise climática.'
+  },
+  {
+    id: '114',
+    date: '03-22',
+    title: 'Dia da Água',
+    category: 'Ciência',
+    description: 'Promove uso sustentável da água e políticas de preservação dos recursos hídricos.'
+  },
+  {
+    id: '115',
+    date: '04-01',
+    title: 'Dia da Abolição da Escravidão Indígena',
+    category: 'Sociedade',
+    description: 'Convoca reflexão histórica sobre violência colonial e direitos dos povos indígenas no presente.'
+  },
+  {
+    id: '116',
+    date: '04-07',
+    title: 'Dia Nacional do Combate ao Bullying',
+    category: 'Educação',
+    description: 'Incentiva ambientes escolares seguros, acolhedores e livres de violência física, verbal e psicológica.'
+  },
+  {
+    id: '117',
+    date: '04-21',
+    title: 'Tiradentes',
+    category: 'Sociedade',
+    description: 'Data cívica que homenageia Joaquim José da Silva Xavier e o ideal de liberdade na história do Brasil.'
+  },
+  {
+    id: '118',
+    date: '04-22',
+    title: 'Descobrimento do Brasil',
+    category: 'Sociedade',
+    description: 'Marco histórico nacional que convida ao debate crítico sobre formação do país e diversidade cultural.'
+  },
+  {
+    id: '119',
+    date: '04-23',
+    title: 'Dia Nacional da Educação de Surdos',
+    category: 'Educação',
+    description: 'Reforça políticas de educação bilíngue, inclusão e valorização da comunidade surda e da LIBRAS.'
+  },
+  {
+    id: '120',
+    date: '04-28',
+    title: 'Dia Internacional da Educação e Aniversário do Porvir',
+    category: 'Educação',
+    description: 'Valoriza a educação como base para transformação social e celebra iniciativas voltadas ao futuro.'
+  },
+  {
+    id: '121',
+    date: '05-01',
+    title: 'Dia do Trabalhador e Dia da Literatura Brasileira',
+    category: 'Sociedade',
+    description: 'Une a valorização do trabalho digno ao reconhecimento da literatura como patrimônio cultural.'
+  },
+  {
+    id: '122',
+    date: '05-03',
+    title: 'Centenário de Milton Santos',
+    category: 'Educação',
+    description: 'Homenageia a contribuição intelectual de Milton Santos para geografia, cidadania e pensamento crítico.'
+  },
+  {
+    id: '123',
+    date: '05-06',
+    title: 'Dia Nacional da Matemática',
+    category: 'Ciência',
+    description: 'Destaca a matemática como ferramenta essencial para ciência, tecnologia, inovação e educação.'
+  },
+  {
+    id: '124',
+    date: '05-10',
+    title: 'Dia das Mães',
+    category: 'Sociedade',
+    description: 'Celebra cuidado, afeto e o papel das mães e figuras maternas na vida familiar e social.'
+  },
+  {
+    id: '125',
+    date: '05-13',
+    title: 'Dia da Abolição da Escravatura',
+    category: 'Sociedade',
+    description: 'Data de memória histórica que reforça o combate ao racismo e a defesa da igualdade racial.'
+  },
+  {
+    id: '126',
+    date: '05-16',
+    title: 'Festival Encontro com o Porvir',
+    category: 'Inovação',
+    description: 'Celebra ideias, debates e práticas inovadoras para educação, cultura e transformação social.'
+  },
+  {
+    id: '127',
+    date: '05-18',
+    title: 'Dia Nacional e Internacional do Museu',
+    category: 'Cultura',
+    description: 'Reconhece museus como espaços de memória, educação, pesquisa e democratização do acesso à cultura.'
+  },
+  {
+    id: '128',
+    date: '06-04',
+    title: 'Corpus Christi',
+    category: 'Cultura',
+    description: 'Data de tradição religiosa e cultural marcada por celebrações comunitárias em diversas regiões.'
+  },
+  {
+    id: '129',
+    date: '06-10',
+    title: 'Dia da Língua Portuguesa',
+    category: 'Cultura',
+    description: 'Valoriza a língua portuguesa e sua diversidade nos diferentes territórios e expressões culturais.'
+  },
+  {
+    id: '130',
+    date: '06-11',
+    title: 'Abertura da Copa do Mundo de 2026',
+    category: 'Sociedade',
+    description: 'Marco esportivo internacional que mobiliza culturas, torcidas e intercâmbio entre nações.'
+  },
+  {
+    id: '131',
+    date: '06-12',
+    title: 'Dia dos Namorados',
+    category: 'Sociedade',
+    description: 'Celebra relações afetivas e vínculos de cuidado e respeito entre parceiros.'
+  },
+  {
+    id: '132',
+    date: '06-24',
+    title: 'Dia de São João',
+    category: 'Cultura',
+    description: 'Data tradicional das festas juninas, com forte presença de música, dança e culinária regional.'
+  },
+  {
+    id: '133',
+    date: '06-29',
+    title: 'Dia de São Pedro',
+    category: 'Cultura',
+    description: 'Integra o calendário das festas populares de junho, valorizando expressões culturais locais.'
+  },
+  {
+    id: '134',
+    date: '06-30',
+    title: 'Dia Nacional do Bumba Meu Boi',
+    category: 'Cultura',
+    description: 'Celebra uma das maiores manifestações da cultura popular brasileira e seu patrimônio simbólico.'
+  },
+  {
+    id: '135',
+    date: '07-01',
+    title: 'Dia Mundial das Bibliotecas',
+    category: 'Educação',
+    description: 'Reforça o valor das bibliotecas como espaços de acesso ao conhecimento, leitura e inclusão.'
+  },
+  {
+    id: '136',
+    date: '07-03',
+    title: 'Dia Nacional de Combate à Discriminação Racial',
+    category: 'Sociedade',
+    description: 'Incentiva ações permanentes de enfrentamento ao racismo e promoção da igualdade racial.'
+  },
+  {
+    id: '137',
+    date: '07-18',
+    title: 'Dia Internacional de Nelson Mandela',
+    category: 'Sociedade',
+    description: 'Homenageia o legado de Nelson Mandela em direitos humanos, justiça social e reconciliação.'
+  },
+  {
+    id: '138',
+    date: '07-19',
+    title: 'Dia Nacional do Futebol e Final da Copa do Mundo de 2026',
+    category: 'Sociedade',
+    description: 'Reconhece o futebol como expressão cultural e celebra um momento marcante do calendário esportivo.'
+  },
+  {
+    id: '139',
+    date: '07-20',
+    title: 'Dia Internacional da Amizade',
+    category: 'Sociedade',
+    description: 'Valoriza relações de confiança, empatia e cooperação como base para convivência social saudável.'
+  },
+  {
+    id: '140',
+    date: '08-06',
+    title: 'Dia Nacional do Profissional de Educação',
+    category: 'Educação',
+    description: 'Reconhece educadores e demais profissionais que atuam na construção de ambientes de aprendizagem.'
+  },
+  {
+    id: '141',
+    date: '08-10',
+    title: 'Dia dos Pais',
+    category: 'Sociedade',
+    description: 'Celebra figuras paternas e a importância do cuidado, presença e corresponsabilidade familiar.'
+  },
+  {
+    id: '142',
+    date: '08-11',
+    title: 'Dia do Estudante',
+    category: 'Educação',
+    description: 'Valoriza estudantes e o direito à educação pública, inclusiva e de qualidade para todos.'
+  },
+  {
+    id: '143',
+    date: '08-12',
+    title: 'Dia Nacional dos Direitos Humanos',
+    category: 'Sociedade',
+    description: 'Reforça compromissos com dignidade humana, liberdade e proteção de direitos fundamentais.'
+  },
+  {
+    id: '144',
+    date: '08-22',
+    title: 'Dia Nacional do Folclore e Dia do Supervisor Escolar',
+    category: 'Cultura',
+    description: 'Combina valorização das tradições populares com reconhecimento do trabalho pedagógico escolar.'
+  },
+  {
+    id: '145',
+    date: '08-25',
+    title: 'Dia da Educação Infantil',
+    category: 'Educação',
+    description: 'Destaca a importância da primeira infância e de práticas educativas acolhedoras e inclusivas.'
+  },
+  {
+    id: '146',
+    date: '09-01',
+    title: 'Dia do Profissional de Educação Física',
+    category: 'Educação',
+    description: 'Reconhece profissionais que promovem saúde, movimento e qualidade de vida por meio da atividade física.'
+  },
+  {
+    id: '147',
+    date: '09-05',
+    title: 'Dia da Amazônia',
+    category: 'Ciência',
+    description: 'Incentiva preservação da floresta, da biodiversidade e dos povos que vivem na região amazônica.'
+  },
+  {
+    id: '148',
+    date: '09-07',
+    title: 'Independência do Brasil',
+    category: 'Sociedade',
+    description: 'Data cívica nacional que marca a independência política do Brasil.'
+  },
+  {
+    id: '149',
+    date: '09-15',
+    title: 'Dia Internacional da Democracia',
+    category: 'Sociedade',
+    description: 'Reafirma valores democráticos, participação cidadã e fortalecimento das instituições públicas.'
+  },
+  {
+    id: '150',
+    date: '09-27',
+    title: 'Dia Internacional em Memória às Vítimas do Holocausto',
+    category: 'Sociedade',
+    description: 'Convida à memória histórica e ao compromisso permanente com direitos humanos e combate ao ódio.'
+  },
+  {
+    id: '151',
+    date: '10-04',
+    title: 'Eleições 2026',
+    category: 'Sociedade',
+    description: 'Marco de participação democrática para escolha de representantes e fortalecimento da cidadania.'
+  },
+  {
+    id: '152',
+    date: '10-08',
+    title: 'Dia do Nordestino',
+    category: 'Cultura',
+    description: 'Celebra a identidade nordestina e a contribuição histórica, social e cultural da região para o Brasil.'
+  },
+  {
+    id: '153',
+    date: '10-29',
+    title: 'Dia Nacional do Livro',
+    category: 'Educação',
+    description: 'Incentiva leitura, formação de leitores e acesso democrático ao livro e à produção editorial.'
+  },
+  {
+    id: '154',
+    date: '11-02',
+    title: 'Finados',
+    category: 'Sociedade',
+    description: 'Data de memória e homenagem às pessoas falecidas, com diferentes tradições culturais e religiosas.'
+  },
+  {
+    id: '155',
+    date: '11-05',
+    title: 'Dia da Ciência e da Cultura',
+    category: 'Ciência',
+    description: 'Evidencia a integração entre ciência e cultura no desenvolvimento social e na produção de conhecimento.'
+  },
+  {
+    id: '156',
+    date: '11-12',
+    title: 'Dia do Diretor de Escola',
+    category: 'Educação',
+    description: 'Reconhece a gestão escolar como eixo estratégico para qualidade da educação e clima institucional.'
+  },
+  {
+    id: '157',
+    date: '11-14',
+    title: 'Dia Nacional da Alfabetização',
+    category: 'Educação',
+    description: 'Reflete sobre políticas e práticas que garantam alfabetização na idade adequada e equidade educacional.'
+  },
+  {
+    id: '158',
+    date: '11-15',
+    title: 'Proclamação da República',
+    category: 'Sociedade',
+    description: 'Data histórica que marca a instauração do regime republicano no Brasil.'
+  },
+  {
+    id: '159',
+    date: '12-02',
+    title: 'Dia do Samba',
+    category: 'Cultura',
+    description: 'Celebra o samba como patrimônio cultural brasileiro e expressão viva da diversidade musical do país.'
+  },
+  {
+    id: '160',
+    date: '12-25',
+    title: 'Natal',
+    category: 'Cultura',
+    description: 'Data de celebração religiosa e cultural associada a valores de solidariedade, convivência e esperança.'
   }
 ];
