@@ -444,7 +444,7 @@ export default function App() {
         <div className="sticky top-20 z-30 glass-panel rounded-xl p-4 space-y-4 sm:space-y-0 sm:flex sm:items-center sm:justify-between gap-4 transition-all duration-300">
           
           {/* Search */}
-          <div className="flex-1 max-w-md space-y-2">
+          <div className="flex-1 max-w-md">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
               <input 
@@ -455,23 +455,6 @@ export default function App() {
                 className="w-full pl-10 pr-4 py-2 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-slate-900 dark:text-white placeholder-slate-400"
               />
             </div>
-
-            {pastEvents.length > 0 && (
-              <button
-                type="button"
-                onClick={() => setShowPastEvents((prev) => !prev)}
-                className="w-full flex items-center justify-between px-3 py-2 text-left bg-white/40 dark:bg-slate-800/40 hover:bg-white/70 dark:hover:bg-slate-800/60 rounded-lg transition-colors"
-                aria-expanded={showPastEvents}
-              >
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
-                  {showPastEvents ? 'Ocultar eventos anteriores' : 'Ver eventos anteriores'} ({pastEvents.length})
-                </span>
-                <ChevronDown
-                  size={16}
-                  className={`text-slate-500 dark:text-slate-400 transition-transform ${showPastEvents ? 'rotate-180' : ''}`}
-                />
-              </button>
-            )}
           </div>
 
           {/* Filters & View Toggle */}
@@ -508,6 +491,25 @@ export default function App() {
             </div>
           </div>
         </div>
+
+        {pastEvents.length > 0 && (
+          <div className="max-w-md">
+            <button
+              type="button"
+              onClick={() => setShowPastEvents((prev) => !prev)}
+              className="w-full flex items-center justify-between px-4 py-3 text-left glass-panel rounded-xl hover:bg-white/70 dark:hover:bg-slate-800/60 transition-colors"
+              aria-expanded={showPastEvents}
+            >
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                {showPastEvents ? 'Ocultar eventos anteriores' : 'Ver eventos anteriores'} ({pastEvents.length})
+              </span>
+              <ChevronDown
+                size={16}
+                className={`text-slate-500 dark:text-slate-400 transition-transform ${showPastEvents ? 'rotate-180' : ''}`}
+              />
+            </button>
+          </div>
+        )}
 
         {/* Upcoming Events */}
         <div className={eventListClassName}>
