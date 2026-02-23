@@ -8,6 +8,7 @@ import {
   List, 
   Clock, 
   ChevronRight, 
+  ChevronDown,
   X, 
   Moon, 
   Sun,
@@ -198,6 +199,7 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<Category | 'Todos'>('Todos');
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
+  const [showPastEvents, setShowPastEvents] = useState(false);
 
   // Theme Toggle
   useEffect(() => {
@@ -235,6 +237,11 @@ export default function App() {
     });
   }, []);
 
+  const todayStr = useMemo(() => {
+    const now = new Date();
+    return `${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  }, []);
+
   const filteredEvents = useMemo(() => {
     return sortedEvents.filter(event => {
       const matchesSearch = event.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -244,10 +251,15 @@ export default function App() {
     });
   }, [sortedEvents, searchQuery, selectedCategory]);
 
+  const upcomingEvents = useMemo(() => {
+    return filteredEvents.filter(event => event.date >= todayStr);
+  }, [filteredEvents, todayStr]);
+
+  const pastEvents = useMemo(() => {
+    return filteredEvents.filter(event => event.date < todayStr);
+  }, [filteredEvents, todayStr]);
+
   const nextEvent = useMemo(() => {
-    const now = new Date();
-    const todayStr = `${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-    
     // Find first event today or after
     let next = sortedEvents.find(e => e.date >= todayStr);
     // If no event left this year, wrap around to first event of next year
@@ -282,8 +294,6 @@ export default function App() {
   };
 
   const scrollToToday = () => {
-    const now = new Date();
-    const todayStr = `${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
     const upcoming = sortedEvents.find(e => e.date >= todayStr);
     
     if (upcoming) {
@@ -294,6 +304,73 @@ export default function App() {
       }
     }
   };
+
+  const eventListClassName = viewMode === 'grid'
+    ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
+    : 'space-y-4';
+
+  const renderEventCard = (event: EventData) => (
+    <motion.div
+      layout
+      key={event.id}
+      id={`event-${event.id}`}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.2 }}
+      onClick={() => setSelectedEvent(event)}
+      className={`
+        group cursor-pointer glass-card rounded-xl overflow-hidden relative
+        ${viewMode === 'list' ? 'flex items-center gap-6 p-4' : 'flex flex-col h-full'}
+        ${event.isHighlight ? 'ring-2 ring-purple-500/50 dark:ring-purple-400/50' : ''}
+      `}
+    >
+      <div className={`
+        flex flex-col items-center justify-center text-center
+        ${viewMode === 'list' ? 'w-20 h-20 rounded-xl bg-slate-100 dark:bg-slate-800 shrink-0' : 'h-32 w-full relative'}
+      `}>
+        {viewMode === 'grid' && (
+          <div className={`absolute inset-0 opacity-10 ${CATEGORIES[event.category].color}`} />
+        )}
+        <span className={`font-display font-bold ${viewMode === 'list' ? 'text-2xl' : 'text-4xl'} text-slate-900 dark:text-white`}>
+          {event.date.split('-')[1]}
+        </span>
+        <span className="text-xs uppercase font-medium tracking-wider text-slate-500 dark:text-slate-400">
+          {new Date(2024, parseInt(event.date.split('-')[0]) - 1).toLocaleString('pt-BR', { month: 'short' }).replace('.', '')}
+        </span>
+      </div>
+
+      <div className={`flex-1 ${viewMode === 'grid' ? 'p-5' : ''}`}>
+        <div className="flex justify-between items-start mb-2">
+          <CategoryBadge category={event.category} />
+          {event.isHighlight && (
+            <span className="text-xs font-bold text-purple-600 dark:text-purple-400 animate-pulse">
+              ★ Destaque
+            </span>
+          )}
+        </div>
+
+        <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+          {event.title}
+        </h3>
+
+        {viewMode === 'grid' && (
+          <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2">
+            {event.description}
+          </p>
+        )}
+      </div>
+
+      <div className={`
+        absolute right-4 bottom-4 opacity-0 transform translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300
+        ${viewMode === 'list' ? 'static opacity-100 translate-x-0' : ''}
+      `}>
+        <div className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full text-slate-600 dark:text-slate-300">
+          <ChevronRight size={16} />
+        </div>
+      </div>
+    </motion.div>
+  );
 
   return (
     <div className="min-h-screen relative overflow-x-hidden selection:bg-purple-500 selection:text-white">
@@ -413,76 +490,39 @@ export default function App() {
           </div>
         </div>
 
-        {/* Events Grid/List */}
-        <div className={viewMode === 'grid' ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" : "space-y-4"}>
+        {/* Upcoming Events */}
+        <div className={eventListClassName}>
           <AnimatePresence mode='popLayout'>
-            {filteredEvents.map((event) => (
-              <motion.div
-                layout
-                key={event.id}
-                id={`event-${event.id}`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.2 }}
-                onClick={() => setSelectedEvent(event)}
-                className={`
-                  group cursor-pointer glass-card rounded-xl overflow-hidden relative
-                  ${viewMode === 'list' ? 'flex items-center gap-6 p-4' : 'flex flex-col h-full'}
-                  ${event.isHighlight ? 'ring-2 ring-purple-500/50 dark:ring-purple-400/50' : ''}
-                `}
-              >
-                {/* Date Badge */}
-                <div className={`
-                  flex flex-col items-center justify-center text-center
-                  ${viewMode === 'list' ? 'w-20 h-20 rounded-xl bg-slate-100 dark:bg-slate-800 shrink-0' : 'h-32 w-full relative'}
-                `}>
-                  {viewMode === 'grid' && (
-                    <div className={`absolute inset-0 opacity-10 ${CATEGORIES[event.category].color}`} />
-                  )}
-                  <span className={`font-display font-bold ${viewMode === 'list' ? 'text-2xl' : 'text-4xl'} text-slate-900 dark:text-white`}>
-                    {event.date.split('-')[1]}
-                  </span>
-                  <span className={`text-xs uppercase font-medium tracking-wider text-slate-500 dark:text-slate-400`}>
-                    {new Date(2024, parseInt(event.date.split('-')[0]) - 1).toLocaleString('pt-BR', { month: 'short' }).replace('.', '')}
-                  </span>
-                </div>
-
-                {/* Content */}
-                <div className={`flex-1 ${viewMode === 'grid' ? 'p-5' : ''}`}>
-                  <div className="flex justify-between items-start mb-2">
-                    <CategoryBadge category={event.category} />
-                    {event.isHighlight && (
-                      <span className="text-xs font-bold text-purple-600 dark:text-purple-400 animate-pulse">
-                        ★ Destaque
-                      </span>
-                    )}
-                  </div>
-                  
-                  <h3 className="font-display font-bold text-lg text-slate-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-                    {event.title}
-                  </h3>
-                  
-                  {viewMode === 'grid' && (
-                    <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2">
-                      {event.description}
-                    </p>
-                  )}
-                </div>
-
-                {/* Action Icon (Hover) */}
-                <div className={`
-                  absolute right-4 bottom-4 opacity-0 transform translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300
-                  ${viewMode === 'list' ? 'static opacity-100 translate-x-0' : ''}
-                `}>
-                  <div className="p-2 bg-slate-100 dark:bg-slate-700 rounded-full text-slate-600 dark:text-slate-300">
-                    <ChevronRight size={16} />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            {upcomingEvents.map(renderEventCard)}
           </AnimatePresence>
         </div>
+
+        {pastEvents.length > 0 && (
+          <div className="space-y-4">
+            <button
+              type="button"
+              onClick={() => setShowPastEvents((prev) => !prev)}
+              className="w-full flex items-center justify-between px-4 py-3 text-left glass-panel rounded-xl hover:bg-white/70 dark:hover:bg-slate-800/60 transition-colors"
+              aria-expanded={showPastEvents}
+            >
+              <span className="font-medium text-slate-800 dark:text-slate-200">
+                {showPastEvents ? 'Ocultar eventos anteriores' : 'Ver eventos anteriores'} ({pastEvents.length})
+              </span>
+              <ChevronDown
+                size={18}
+                className={`text-slate-500 dark:text-slate-400 transition-transform ${showPastEvents ? 'rotate-180' : ''}`}
+              />
+            </button>
+
+            {showPastEvents && (
+              <div className={eventListClassName}>
+                <AnimatePresence mode='popLayout'>
+                  {pastEvents.map(renderEventCard)}
+                </AnimatePresence>
+              </div>
+            )}
+          </div>
+        )}
 
         {filteredEvents.length === 0 && (
           <div className="text-center py-20">
