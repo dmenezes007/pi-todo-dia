@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { utils, writeFileXLSX } from 'xlsx';
 import { 
@@ -200,6 +200,7 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState<Category | 'Todos'>('Todos');
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
   const [showPastEvents, setShowPastEvents] = useState(false);
+  const pastEventsRef = useRef<HTMLDivElement | null>(null);
 
   // Theme Toggle
   useEffect(() => {
@@ -304,6 +305,12 @@ export default function App() {
       }
     }
   };
+
+  useEffect(() => {
+    if (showPastEvents && pastEventsRef.current) {
+      pastEventsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [showPastEvents]);
 
   const eventListClassName = viewMode === 'grid'
     ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
@@ -519,7 +526,7 @@ export default function App() {
         </div>
 
         {pastEvents.length > 0 && showPastEvents && (
-          <div className={eventListClassName}>
+          <div ref={pastEventsRef} className={eventListClassName}>
             <AnimatePresence mode='popLayout'>
               {pastEvents.map(renderEventCard)}
             </AnimatePresence>
