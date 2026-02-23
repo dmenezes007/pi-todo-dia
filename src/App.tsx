@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useRef } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { utils, writeFileXLSX } from 'xlsx';
 import { 
@@ -200,7 +200,6 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState<Category | 'Todos'>('Todos');
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
   const [showPastEvents, setShowPastEvents] = useState(false);
-  const pastEventsRef = useRef<HTMLDivElement | null>(null);
 
   // Theme Toggle
   useEffect(() => {
@@ -306,15 +305,11 @@ export default function App() {
     }
   };
 
-  useEffect(() => {
-    if (showPastEvents && pastEventsRef.current) {
-      pastEventsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, [showPastEvents]);
-
   const eventListClassName = viewMode === 'grid'
     ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
     : 'space-y-4';
+
+  const pastEventListClassName = 'grid grid-cols-1 lg:grid-cols-2 gap-3';
 
   const renderEventCard = (event: EventData) => (
     <motion.div
@@ -377,6 +372,28 @@ export default function App() {
         </div>
       </div>
     </motion.div>
+  );
+
+  const renderPastEventItem = (event: EventData) => (
+    <button
+      key={event.id}
+      type="button"
+      onClick={() => setSelectedEvent(event)}
+      className="w-full text-left glass-panel rounded-xl p-4 flex items-start justify-between gap-4 hover:bg-white/70 dark:hover:bg-slate-800/60 transition-colors"
+      aria-label={`Abrir detalhes de ${event.title}`}
+    >
+      <div className="min-w-0">
+        <div className="text-xs uppercase tracking-wider font-medium text-slate-500 dark:text-slate-400 mb-1">
+          {event.date}
+        </div>
+        <h4 className="font-display font-bold text-slate-900 dark:text-white leading-snug whitespace-normal break-words">
+          {event.title}
+        </h4>
+      </div>
+      <div className="shrink-0">
+        <CategoryBadge category={event.category} />
+      </div>
+    </button>
   );
 
   return (
@@ -500,7 +517,7 @@ export default function App() {
         </div>
 
         {pastEvents.length > 0 && (
-          <div className="max-w-md">
+          <div className="w-full">
             <button
               type="button"
               onClick={() => setShowPastEvents((prev) => !prev)}
@@ -518,20 +535,20 @@ export default function App() {
           </div>
         )}
 
+        {pastEvents.length > 0 && showPastEvents && (
+          <div className={pastEventListClassName}>
+            <AnimatePresence mode='popLayout'>
+              {pastEvents.map(renderPastEventItem)}
+            </AnimatePresence>
+          </div>
+        )}
+
         {/* Upcoming Events */}
         <div className={eventListClassName}>
           <AnimatePresence mode='popLayout'>
             {upcomingEvents.map(renderEventCard)}
           </AnimatePresence>
         </div>
-
-        {pastEvents.length > 0 && showPastEvents && (
-          <div ref={pastEventsRef} className={eventListClassName}>
-            <AnimatePresence mode='popLayout'>
-              {pastEvents.map(renderEventCard)}
-            </AnimatePresence>
-          </div>
-        )}
 
         {filteredEvents.length === 0 && (
           <div className="text-center py-20">
